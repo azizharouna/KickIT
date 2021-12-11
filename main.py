@@ -6,10 +6,11 @@ import numpy as np
 import sklearn
 from sklearn.preprocessing import StandardScaler
 app = Flask(__name__)
-model = pickle.load(open('randomforestclassifier_model.pkl', 'rb'))
+model = pickle.load(open('random_forest_regression_model.pkl', 'rb'))
 @app.route('/',methods=['GET'])
 def Home():
     return render_template('index.html')
+
 
 standard_to = StandardScaler()
 @app.route("/predict", methods=['POST'])
@@ -46,10 +47,11 @@ prediction = model.predict([['Auction_encoded', 'Make_encoded', 'Model_encoded',
        'MMRAcquisitonRetailCleanPrice', 'MMRCurrentAuctionAveragePrice',
        'MMRCurrentAuctionCleanPrice', 'MMRCurrentRetailAveragePrice',
        'MMRCurrentRetailCleanPrice', 'WarrantyCost']])
+        
         if output<0:
-            return render_template('index.html',prediction_texts="you can buy this car")
+            return render_template('index.html',prediction_texts="Sorry you cannot sell this car")
         else:
-            return render_template('index.html',prediction_text="Sorry , It is a kick (bad Buy)")
+            return render_template('index.html',prediction_text="You Can Sell The Car at {}".format(output))
     else:
         return render_template('index.html')
 
