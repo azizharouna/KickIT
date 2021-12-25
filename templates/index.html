@@ -1,0 +1,1046 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head><title>Kick IT App</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link rel="stylesheet" type="text/css" href="R.css" />
+</head><body>
+<h1> Kick IT App
+<img class="logo" src="{{ url_for('static',filename ='pic.png')}}" alt="[Kick logo]" />
+</h1>
+<hr/>
+<div style="text-align: center;">
+</div><h2>Predictive analysis tool to avoid unpleasant car purchase experience</h2>
+</div><h2>(A Prototype)</h2>
+<body>
+    <div style="color:blue">
+        <form action="{{ url_for('predict')}}" method="post">   
+            <h3>What is the proposed price for the car  (USD)?</h3><br><input id="fourth" name="MMRAcquisitionAuctionAveragePrice" required="required">
+            <h3>How many Kilometers driven (miles)?</h3><br><input id="fourth" name="VehOdo" required="required">
+            <h3>What is the Make of the car?</h3><br><select id="first" name="Make" required="required">
+                <option value='MAZDA'>MAZDA</option>
+                <option value='DODGE'>DODGE</option>
+                <option value='FORD'>FORD</option>
+                <option value='MITSUBISHI'>MITSUBISHI</option>
+                <option value='KIA'>KIA</option>
+                <option value='GMC'>GMC</option>
+                <option value='NISSAN'>NISSAN</option>
+                <option value='CHEVROLET'>CHEVROLET</option>
+                <option value='SATURN'>SATURN</option>
+                <option value='CHRYSLER'>CHRYSLER</option>
+                <option value='MERCURY'>MERCURY</option>
+                <option value='HYUNDAI'>HYUNDAI</option>
+                <option value='TOYOTA'>TOYOTA</option>
+                <option value='PONTIAC'>PONTIAC</option>
+                <option value='SUZUKI'>SUZUKI</option>
+                <option value='JEEP'>JEEP</option>
+                <option value='HONDA'>HONDA</option>
+                <option value='OLDSMOBILE'>OLDSMOBILE</option>
+                <option value='BUICK'>BUICK</option>
+                <option value='SCION'>SCION</option>
+                <option value='VOLKSWAGEN'>VOLKSWAGEN</option>
+                <option value='ISUZU'>ISUZU</option>
+                <option value='LINCOLN'>LINCOLN</option>
+                <option value='MINI'>MINI</option>
+                <option value='SUBARU'>SUBARU</option>
+                <option value='CADILLAC'>CADILLAC</option>
+                <option value='VOLVO'>VOLVO</option>
+                <option value='INFINITI'>INFINITI</option>
+                <option value='PLYMOUTH'>PLYMOUTH</option>
+                <option value='LEXUS'>LEXUS</option>
+                <option value='ACURA'>ACURA</option>
+                <option value='TOYOTA SCION'>TOYOTA SCION</option>
+                <option value='HUMMER'>HUMMER</option>
+            </select>
+            <h3>Which model?</h3><br><select id="second" name="Model" required="required">
+                <option value='MAZDA3'>MAZDA3</option>
+                <option value='1500 RAM PICKUP 2WD'>1500 RAM PICKUP 2WD</option>
+                <option value='STRATUS V6'>STRATUS V6</option>
+                <option value='NEON'>NEON</option>
+                <option value='FOCUS'>FOCUS</option>
+                <option value='GALANT 4C'>GALANT 4C</option>
+                <option value='SPECTRA'>SPECTRA</option>
+                <option value='TAURUS'>TAURUS</option>
+                <option value='FIVE HUNDRED'>FIVE HUNDRED</option>
+                <option value='1500 SIERRA PICKUP 2'>1500 SIERRA PICKUP 2</option>
+                <option value='F150 PICKUP 2WD V6'>F150 PICKUP 2WD V6</option>
+                <option value='CARAVAN GRAND FWD V6'>CARAVAN GRAND FWD V6</option>
+                <option value='ALTIMA'>ALTIMA</option>
+                <option value='CAVALIER 4C'>CAVALIER 4C</option>
+                <option value='TRAILBLAZER 2WD 6C'>TRAILBLAZER 2WD 6C</option>
+                <option value='VUE 2WD 4C'>VUE 2WD 4C</option>
+                <option value='IMPALA'>IMPALA</option>
+                <option value='ENVOY XL 2WD 6C'>ENVOY XL 2WD 6C</option>
+                <option value='VOYAGER FWD V6'>VOYAGER FWD V6</option>
+                <option value='MONTE CARLO'>MONTE CARLO</option>
+                <option value='VENTURE FWD V6'>VENTURE FWD V6</option>
+                <option value='HHR'>HHR</option>
+                <option value='SABLE'>SABLE</option>
+                <option value='ENVOY XL 4WD 6C'>ENVOY XL 4WD 6C</option>
+                <option value='DURANGO 4WD V8'>DURANGO 4WD V8</option>
+                <option value='SUBURBAN 1500 2WD'>SUBURBAN 1500 2WD</option>
+                <option value='EXPLORER 2WD V6'>EXPLORER 2WD V6</option>
+                <option value='300'>300</option>
+                <option value='MUSTANG V6'>MUSTANG V6</option>
+                <option value='AVALANCHE 1500 2WD V'>AVALANCHE 1500 2WD V</option>
+                <option value='WINDSTAR FWD V6'>WINDSTAR FWD V6</option>
+                <option value='FREESTAR FWD V6'>FREESTAR FWD V6</option>
+                <option value='SONATA V6'>SONATA V6</option>
+                <option value='CALIBER'>CALIBER</option>
+                <option value='SENTRA'>SENTRA</option>
+                <option value='PACIFICA FWD'>PACIFICA FWD</option>
+                <option value='IMPALA V6'>IMPALA V6</option>
+                <option value='XTERRA 2WD V6'>XTERRA 2WD V6</option>
+                <option value='COROLLA'>COROLLA</option>
+                <option value='G6 V6'>G6 V6</option>
+                <option value='ION'>ION</option>
+                <option value='DURANGO 2WD V8'>DURANGO 2WD V8</option>
+                <option value='FUSION 4C'>FUSION 4C</option>
+                <option value='4 RUNNER 2WD V8'>4 RUNNER 2WD V8</option>
+                <option value='GRAND PRIX'>GRAND PRIX</option>
+                <option value='SEBRING V6'>SEBRING V6</option>
+                <option value='FORENZA'>FORENZA</option>
+                <option value='MAZDA5'>MAZDA5</option>
+                <option value='LIBERTY 2WD V6'>LIBERTY 2WD V6</option>
+                <option value='DAKOTA PICKUP 2WD V6'>DAKOTA PICKUP 2WD V6</option>
+                <option value='TAHOE 2WD'>TAHOE 2WD</option>
+                <option value='COBALT'>COBALT</option>
+                <option value='EXPEDITION 2WD V8'>EXPEDITION 2WD V8</option>
+                <option value='ELEMENT 2WD'>ELEMENT 2WD</option>
+                <option value='SUNFIRE'>SUNFIRE</option>
+                <option value='RELAY 2WD V6'>RELAY 2WD V6</option>
+                <option value='FREESTYLE 2WD V6'>FREESTYLE 2WD V6</option>
+                <option value='F150 PICKUP 2WD V8'>F150 PICKUP 2WD V8</option>
+                <option value='TRAILBLAZER EXT 2WD'>TRAILBLAZER EXT 2WD</option>
+                <option value='PT CRUISER'>PT CRUISER</option>
+                <option value='TRACKER 2WD V6'>TRACKER 2WD V6</option>
+                <option value='DURANGO 2WD V6'>DURANGO 2WD V6</option>
+                <option value='MALIBU V6'>MALIBU V6</option>
+                <option value='ALERO 4C'>ALERO 4C</option>
+                <option value='TOWN & COUNTRY FWD V'>TOWN & COUNTRY FWD V</option>
+                <option value='CAMRY V6'>CAMRY V6</option>
+                <option value='MAGNUM V6'>MAGNUM V6</option>
+                <option value='EQUINOX FWD V6'>EQUINOX FWD V6</option>
+                <option value='STRATUS 4C'>STRATUS 4C</option>
+                <option value='LIBERTY 2WD 4C'>LIBERTY 2WD 4C</option>
+                <option value='MAZDA6'>MAZDA6</option>
+                <option value='CAMRY 4C'>CAMRY 4C</option>
+                <option value='FREESTYLE FWD V6'>FREESTYLE FWD V6</option>
+                <option value='L SERIES'>L SERIES</option>
+                <option value='RENO'>RENO</option>
+                <option value='SEBRING 4C'>SEBRING 4C</option>
+                <option value='SILHOUETTE'>SILHOUETTE</option>
+                <option value='ESCAPE 4WD V6'>ESCAPE 4WD V6</option>
+                <option value='OPTIMA 4C'>OPTIMA 4C</option>
+                <option value='RANGER PICKUP 2WD V6'>RANGER PICKUP 2WD V6</option>
+                <option value='G6 4C'>G6 4C</option>
+                <option value='ENVOY 2WD 6C'>ENVOY 2WD 6C</option>
+                <option value='ACCENT'>ACCENT</option>
+                <option value='UPLANDER FWD V6'>UPLANDER FWD V6</option>
+                <option value='ELANTRA'>ELANTRA</option>
+                <option value='1500 SILVERADO PICKU'>1500 SILVERADO PICKU</option>
+                <option value='PARK AVENUE'>PARK AVENUE</option>
+                <option value='ENDEAVOR FWD'>ENDEAVOR FWD</option>
+                <option value='AMANTI'>AMANTI</option>
+                <option value='TUCSON 2WD 4C'>TUCSON 2WD 4C</option>
+                <option value='XB'>XB</option>
+                <option value='EXPLORER 4WD V6'>EXPLORER 4WD V6</option>
+                <option value='ESCAPE 2WD V6'>ESCAPE 2WD V6</option>
+                <option value='CARAVAN FWD V6'>CARAVAN FWD V6</option>
+                <option value='TRIBUTE 2WD 4C'>TRIBUTE 2WD 4C</option>
+                <option value='SONATA 4C'>SONATA 4C</option>
+                <option value='RENDEZVOUS FWD'>RENDEZVOUS FWD</option>
+                <option value='ACCORD 4C'>ACCORD 4C</option>
+                <option value='ESCAPE 2WD 4C'>ESCAPE 2WD 4C</option>
+                <option value='MALIBU MAXX V6'>MALIBU MAXX V6</option>
+                <option value='COLORADO PICKUP 2WD'>COLORADO PICKUP 2WD</option>
+                <option value='REGAL'>REGAL</option>
+                <option value='SANTA FE 2WD V6'>SANTA FE 2WD V6</option>
+                <option value='GRAND CHEROKEE 2WD V'>GRAND CHEROKEE 2WD V</option>
+                <option value='MALIBU 4C'>MALIBU 4C</option>
+                <option value='AVEO'>AVEO</option>
+                <option value='CHARGER V6'>CHARGER V6</option>
+                <option value='AVENGER 4C'>AVENGER 4C</option>
+                <option value='RIO'>RIO</option>
+                <option value='PATRIOT 4WD 4C'>PATRIOT 4WD 4C</option>
+                <option value='SORENTO 4WD'>SORENTO 4WD</option>
+                <option value='JOURNEY FWD 4C'>JOURNEY FWD 4C</option>
+                <option value='AURA'>AURA</option>
+                <option value='AVENGER V6'>AVENGER V6</option>
+                <option value='TRIBUTE 2WD V6'>TRIBUTE 2WD V6</option>
+                <option value='F150 PICKUP 4WD V8'>F150 PICKUP 4WD V8</option>
+                <option value='FUSION V6'>FUSION V6</option>
+                <option value='TERRAZA FWD V6'>TERRAZA FWD V6</option>
+                <option value='ENDEAVOR AWD'>ENDEAVOR AWD</option>
+                <option value='VIBE'>VIBE</option>
+                <option value='TOWN & COUNTRY 2WD V'>TOWN & COUNTRY 2WD V</option>
+                <option value='CHARGER'>CHARGER</option>
+                <option value='VERSA'>VERSA</option>
+                <option value='JETTA 5C'>JETTA 5C</option>
+                <option value='PACIFICA FWD 3.5L V6'>PACIFICA FWD 3.5L V6</option>
+                <option value='IMPALA 3.5L V6 SFI'>IMPALA 3.5L V6 SFI</option>
+                <option value='COBALT 2.2L I4 MPI'>COBALT 2.2L I4 MPI</option>
+                <option value='SORENTO 4WD 3.5L V6'>SORENTO 4WD 3.5L V6</option>
+                <option value='UPLANDER FWD V6 3.9L'>UPLANDER FWD V6 3.9L</option>
+                <option value='VENTURE AWD V6'>VENTURE AWD V6</option>
+                <option value='EXPEDITION 4WD V8 5.'>EXPEDITION 4WD V8 5.</option>
+                <option value='TRACKER 4WD V6 2.5L'>TRACKER 4WD V6 2.5L</option>
+                <option value='MALIBU V6 3.5L V6 SF'>MALIBU V6 3.5L V6 SF</option>
+                <option value='MUSTANG V6 4.0L V6 E'>MUSTANG V6 4.0L V6 E</option>
+                <option value='LIBERTY 4WD V6 3.7L'>LIBERTY 4WD V6 3.7L</option>
+                <option value='BRAVADA AWD V6 4.2L'>BRAVADA AWD V6 4.2L</option>
+                <option value='IMPALA 3.4L V6 SFI'>IMPALA 3.4L V6 SFI</option>
+                <option value='CHARGER V6 2.7L V6 M'>CHARGER V6 2.7L V6 M</option>
+                <option value='TAURUS 3.0L V6 EFI S'>TAURUS 3.0L V6 EFI S</option>
+                <option value='300 2.7L V6 MPI'>300 2.7L V6 MPI</option>
+                <option value='MONTE CARLO 3.5L V6'>MONTE CARLO 3.5L V6</option>
+                <option value='MAGNUM V6 2.7L V6 MP'>MAGNUM V6 2.7L V6 MP</option>
+                <option value='ION 2.2L I4 EFI / SF'>ION 2.2L I4 EFI / SF</option>
+                <option value='AVEO 1.6L I4 EFI'>AVEO 1.6L I4 EFI</option>
+                <option value='SEBRING 4C 2.4L I4 E'>SEBRING 4C 2.4L I4 E</option>
+                <option value='MALIBU 4C 2.2L I4 MP'>MALIBU 4C 2.2L I4 MP</option>
+                <option value='FIVE HUNDRED 3.0L V6'>FIVE HUNDRED 3.0L V6</option>
+                <option value='MALIBU MAXX V6 3.5L'>MALIBU MAXX V6 3.5L</option>
+                <option value='SEBRING 4C 2.4L I4 S'>SEBRING 4C 2.4L I4 S</option>
+                <option value='SONATA V6 2.7L V6 MP'>SONATA V6 2.7L V6 MP</option>
+                <option value='ELANTRA 2.0L I4 MPI'>ELANTRA 2.0L I4 MPI</option>
+                <option value='MARINER 2WD V6 3.0L'>MARINER 2WD V6 3.0L</option>
+                <option value='SEBRING V6 2.7L V6 M'>SEBRING V6 2.7L V6 M</option>
+                <option value='TRAILBLAZER 4WD 6C 4'>TRAILBLAZER 4WD 6C 4</option>
+                <option value='PT CRUISER 2.4L I4 M'>PT CRUISER 2.4L I4 M</option>
+                <option value='ELANTRA MFI I-4 2.0L'>ELANTRA MFI I-4 2.0L</option>
+                <option value='CAVALIER 4C 2.2L I4'>CAVALIER 4C 2.2L I4</option>
+                <option value='ASCENDER 2WD 6C 4.2L'>ASCENDER 2WD 6C 4.2L</option>
+                <option value='ALTIMA 2.5L I4 MPI'>ALTIMA 2.5L I4 MPI</option>
+                <option value='HHR 2.2L I4 MPI'>HHR 2.2L I4 MPI</option>
+                <option value='STRATUS 4C 2.4L I4 S'>STRATUS 4C 2.4L I4 S</option>
+                <option value='GRAND PRIX 3.8L V6 S'>GRAND PRIX 3.8L V6 S</option>
+                <option value='PT CRUISER 2.4L I4 S'>PT CRUISER 2.4L I4 S</option>
+                <option value='STRATUS 4C 2.4L I4 M'>STRATUS 4C 2.4L I4 M</option>
+                <option value='PT CRUISER 2.4L I-4'>PT CRUISER 2.4L I-4</option>
+                <option value='SANTA FE 4WD V6 2.7L'>SANTA FE 4WD V6 2.7L</option>
+                <option value='ECLIPSE'>ECLIPSE</option>
+                <option value='GRAND AM V6 3.4L V6'>GRAND AM V6 3.4L V6</option>
+                <option value='SONATA V6 3.3L V6 MP'>SONATA V6 3.3L V6 MP</option>
+                <option value='BONNEVILLE 3.8L V6 S'>BONNEVILLE 3.8L V6 S</option>
+                <option value='EQUINOX AWD V6 3.4L'>EQUINOX AWD V6 3.4L</option>
+                <option value='FORENZA 2.0L I4 EFI'>FORENZA 2.0L I4 EFI</option>
+                <option value='CONCORDE 3.5L V6 MPI'>CONCORDE 3.5L V6 MPI</option>
+                <option value='ION 2.2L I4 EFI'>ION 2.2L I4 EFI</option>
+                <option value='VENTURE FWD V6 3.4L'>VENTURE FWD V6 3.4L</option>
+                <option value='ION 2.0L I4 MPI'>ION 2.0L I4 MPI</option>
+                <option value='SENTRA 2.5L I-4 EFI'>SENTRA 2.5L I-4 EFI</option>
+                <option value='SABLE 3.0L V6 EFI'>SABLE 3.0L V6 EFI</option>
+                <option value='TAHOE 4WD 4.8L V8 SF'>TAHOE 4WD 4.8L V8 SF</option>
+                <option value='SPORTAGE 2WD 4C 2.0L'>SPORTAGE 2WD 4C 2.0L</option>
+                <option value='DURANGO 4WD V8 5.7L'>DURANGO 4WD V8 5.7L</option>
+                <option value='MALIBU V6 3.1L V6 SF'>MALIBU V6 3.1L V6 SF</option>
+                <option value='WINDSTAR FWD V6 3.8L'>WINDSTAR FWD V6 3.8L</option>
+                <option value='ALTIMA 3.5L V6 MPI'>ALTIMA 3.5L V6 MPI</option>
+                <option value='PACIFICA AWD 3.5L V6'>PACIFICA AWD 3.5L V6</option>
+                <option value='SONATA 4C 2.4L I4 MP'>SONATA 4C 2.4L I4 MP</option>
+                <option value='VIBE 1.8L I4 MPI'>VIBE 1.8L I4 MPI</option>
+                <option value='MAZDA6 2.3L I4 MFI /'>MAZDA6 2.3L I4 MFI /</option>
+                <option value='EXPLORER 4WD V6 4.0L'>EXPLORER 4WD V6 4.0L</option>
+                <option value='FOCUS 2.0L I-4 EFI D'>FOCUS 2.0L I-4 EFI D</option>
+                <option value='ACCORD V6 3.0L V6 EF'>ACCORD V6 3.0L V6 EF</option>
+                <option value='ESCAPE 2WD V6 3.0L V'>ESCAPE 2WD V6 3.0L V</option>
+                <option value='VUE AWD 4C 2.2L I4 M'>VUE AWD 4C 2.2L I4 M</option>
+                <option value='RENDEZVOUS FWD 3.4L'>RENDEZVOUS FWD 3.4L</option>
+                <option value='ACCENT 1.6L I4 MPI'>ACCENT 1.6L I4 MPI</option>
+                <option value='TOWN CAR 4.6L V8 EFI'>TOWN CAR 4.6L V8 EFI</option>
+                <option value='OPTIMA 4C 2.4L I4 MP'>OPTIMA 4C 2.4L I4 MP</option>
+                <option value='FOCUS 2.0L I4 SFI'>FOCUS 2.0L I4 SFI</option>
+                <option value='MONTE CARLO 3.4L V6'>MONTE CARLO 3.4L V6</option>
+                <option value='FREESTYLE 2WD V6 3.0'>FREESTYLE 2WD V6 3.0</option>
+                <option value='MILAN V6'>MILAN V6</option>
+                <option value='LIBERTY 4WD V6'>LIBERTY 4WD V6</option>
+                <option value='CARAVAN FWD 4C'>CARAVAN FWD 4C</option>
+                <option value='XL-7 4WD'>XL-7 4WD</option>
+                <option value='FREESTYLE AWD V6'>FREESTYLE AWD V6</option>
+                <option value='GRAND AM V6'>GRAND AM V6</option>
+                <option value='S SERIES'>S SERIES</option>
+                <option value='PACIFICA AWD'>PACIFICA AWD</option>
+                <option value='EQUINOX AWD V6'>EQUINOX AWD V6</option>
+                <option value='HIGHLANDER 2WD V6'>HIGHLANDER 2WD V6</option>
+                <option value='TRAILBLAZER EXT 4WD'>TRAILBLAZER EXT 4WD</option>
+                <option value='LANCER'>LANCER</option>
+                <option value='MAXIMA'>MAXIMA</option>
+                <option value='EXPEDITION 4WD V8'>EXPEDITION 4WD V8</option>
+                <option value='COOPER'>COOPER</option>
+                <option value='ACCORD V6'>ACCORD V6</option>
+                <option value='GRAND AM 4C'>GRAND AM 4C</option>
+                <option value='MILAN 4C'>MILAN 4C</option>
+                <option value='ENVOY 4WD 6C'>ENVOY 4WD 6C</option>
+                <option value='RENDEZVOUS AWD'>RENDEZVOUS AWD</option>
+                <option value='CENTURY V6'>CENTURY V6</option>
+                <option value='TRAILBLAZER 4WD 6C'>TRAILBLAZER 4WD 6C</option>
+                <option value='TRIBUTE 4WD V6'>TRIBUTE 4WD V6</option>
+                <option value='MONTEGO'>MONTEGO</option>
+                <option value='S10 PICKUP 2WD 4C'>S10 PICKUP 2WD 4C</option>
+                <option value='GRAND CHEROKEE 4WD V'>GRAND CHEROKEE 4WD V</option>
+                <option value='1500 RAM PICKUP 4WD'>1500 RAM PICKUP 4WD</option>
+                <option value='TORRENT FWD V6'>TORRENT FWD V6</option>
+                <option value='AVALANCHE 1500 4WD V'>AVALANCHE 1500 4WD V</option>
+                <option value='EXPLORER 2WD V8'>EXPLORER 2WD V8</option>
+                <option value='TAHOE 4WD'>TAHOE 4WD</option>
+                <option value='GALANT V6'>GALANT V6</option>
+                <option value='NEON 2.0L I-4 SFI SO'>NEON 2.0L I-4 SFI SO</option>
+                <option value='TAURUS 3.0L V6 EFI'>TAURUS 3.0L V6 EFI</option>
+                <option value='SPECTRA 2.0L I4 EFI'>SPECTRA 2.0L I4 EFI</option>
+                <option value='PACIFICA FWD 3.8L V6'>PACIFICA FWD 3.8L V6</option>
+                <option value='CHARGER V6 3.5L V6 E'>CHARGER V6 3.5L V6 E</option>
+                <option value='CAMRY SOLARA V6 3.0L'>CAMRY SOLARA V6 3.0L</option>
+                <option value='RIO 1.6L I4 MPI'>RIO 1.6L I4 MPI</option>
+                <option value='CIVIC'>CIVIC</option>
+                <option value='TRAILBLAZER 2WD 6C 4'>TRAILBLAZER 2WD 6C 4</option>
+                <option value='MAGNUM V6 3.5L V6 MP'>MAGNUM V6 3.5L V6 MP</option>
+                <option value='CHARGER 3.5L V6 EFI'>CHARGER 3.5L V6 EFI</option>
+                <option value='LACROSSE 3.8L V6 SFI'>LACROSSE 3.8L V6 SFI</option>
+                <option value='G6 4C 2.4L I4 MPI'>G6 4C 2.4L I4 MPI</option>
+                <option value='IMPALA V6 3.5L V6 SF'>IMPALA V6 3.5L V6 SF</option>
+                <option value='MUSTANG V6 3.8L V6 E'>MUSTANG V6 3.8L V6 E</option>
+                <option value='G6 V6 3.5L V6 SFI'>G6 V6 3.5L V6 SFI</option>
+                <option value='RENO 2.0L I4 EFI'>RENO 2.0L I4 EFI</option>
+                <option value='CARAVAN FWD 4C 2.4L'>CARAVAN FWD 4C 2.4L</option>
+                <option value='ACCORD 4C 2.4L I4 MP'>ACCORD 4C 2.4L I4 MP</option>
+                <option value='EXPLORER 2WD V6 4.0L'>EXPLORER 2WD V6 4.0L</option>
+                <option value='ALTIMA 2.5L I-4 EFI'>ALTIMA 2.5L I-4 EFI</option>
+                <option value='MAXIMA MFI V6 3.5L D'>MAXIMA MFI V6 3.5L D</option>
+                <option value='300 3.5L V6 MPI'>300 3.5L V6 MPI</option>
+                <option value='ECLIPSE 2.4L I4 MPI'>ECLIPSE 2.4L I4 MPI</option>
+                <option value='TAURUS 3.0L V6 EFI /'>TAURUS 3.0L V6 EFI /</option>
+                <option value='LIBERTY 2WD V6 3.7L'>LIBERTY 2WD V6 3.7L</option>
+                <option value='CHARGER 2.7L V6 MPI'>CHARGER 2.7L V6 MPI</option>
+                <option value='MILAN V6 3.0L V6 EFI'>MILAN V6 3.0L V6 EFI</option>
+                <option value='FIREBIRD V6 3.8L V6'>FIREBIRD V6 3.8L V6</option>
+                <option value='PATRIOT 2WD 4C'>PATRIOT 2WD 4C</option>
+                <option value='RONDO V6'>RONDO V6</option>
+                <option value='FORESTER AWD'>FORESTER AWD</option>
+                <option value='XTERRA 2WD 4C'>XTERRA 2WD 4C</option>
+                <option value='DAKOTA PICKUP 2WD V8'>DAKOTA PICKUP 2WD V8</option>
+                <option value='TIBURON'>TIBURON</option>
+                <option value='CAMRY SOLARA V6'>CAMRY SOLARA V6</option>
+                <option value='MONTANA'>MONTANA</option>
+                <option value='NITRO 2WD V6'>NITRO 2WD V6</option>
+                <option value='YARIS'>YARIS</option>
+                <option value='G5 4C'>G5 4C</option>
+                <option value='AURA V6'>AURA V6</option>
+                <option value='RANGER PICKUP 2WD 4C'>RANGER PICKUP 2WD 4C</option>
+                <option value='SPORTAGE 2WD 4C'>SPORTAGE 2WD 4C</option>
+                <option value='MOUNTAINEER 2WD V6'>MOUNTAINEER 2WD V6</option>
+                <option value='CROWN VICTORIA'>CROWN VICTORIA</option>
+                <option value='ALERO V6'>ALERO V6</option>
+                <option value='300M'>300M</option>
+                <option value='GRAND CHEROKEE 4WD 6'>GRAND CHEROKEE 4WD 6</option>
+                <option value='LE SABRE'>LE SABRE</option>
+                <option value='MATRIX 2WD'>MATRIX 2WD</option>
+                <option value='VOYAGER FWD 4C'>VOYAGER FWD 4C</option>
+                <option value='SENTRA 1.8L I4 EFI'>SENTRA 1.8L I4 EFI</option>
+                <option value='ENVOY 2WD 6C 4.2L I-'>ENVOY 2WD 6C 4.2L I-</option>
+                <option value='F150 PICKUP 2WD V8 5'>F150 PICKUP 2WD V8 5</option>
+                <option value='ION 2.2L I4 MPI'>ION 2.2L I4 MPI</option>
+                <option value='ALERO V6 3.4L V6 MPI'>ALERO V6 3.4L V6 MPI</option>
+                <option value='COBALT 2.2L I4 MPI /'>COBALT 2.2L I4 MPI /</option>
+                <option value='UPLANDER FWD V6 3.5L'>UPLANDER FWD V6 3.5L</option>
+                <option value='VUE 2WD 4C 2.2L I4 M'>VUE 2WD 4C 2.2L I4 M</option>
+                <option value='GRAND VITARA 2WD 2.5'>GRAND VITARA 2WD 2.5</option>
+                <option value='AVEO 1.6L I-4 EFI DO'>AVEO 1.6L I-4 EFI DO</option>
+                <option value='MOUNTAINEER AWD V6 4'>MOUNTAINEER AWD V6 4</option>
+                <option value='XL-7 2WD 3.6L V6 EFI'>XL-7 2WD 3.6L V6 EFI</option>
+                <option value='DURANGO 2WD V8 4.7L'>DURANGO 2WD V8 4.7L</option>
+                <option value='AVEO 1.6L I4 EFI / M'>AVEO 1.6L I4 EFI / M</option>
+                <option value='ACCORD 4C 2.4L I-4 M'>ACCORD 4C 2.4L I-4 M</option>
+                <option value='CALIBER 2.0L I4 SFI'>CALIBER 2.0L I4 SFI</option>
+                <option value='TAHOE 2WD 4.8L V8 SF'>TAHOE 2WD 4.8L V8 SF</option>
+                <option value='F150 PICKUP 2WD V8 4'>F150 PICKUP 2WD V8 4</option>
+                <option value='SORENTO 2WD 3.5L V6'>SORENTO 2WD 3.5L V6</option>
+                <option value='EQUINOX FWD V6 3.4L'>EQUINOX FWD V6 3.4L</option>
+                <option value='MALIBU 4C 2.2L I4 MF'>MALIBU 4C 2.2L I4 MF</option>
+                <option value='ENVOY 2WD 6C 4.2L I6'>ENVOY 2WD 6C 4.2L I6</option>
+                <option value='TITAN PICKUP 2WD V8'>TITAN PICKUP 2WD V8</option>
+                <option value='GRAND AM 4C 2.2L I4'>GRAND AM 4C 2.2L I4</option>
+                <option value='ALTIMA 2.5L I4 MPI /'>ALTIMA 2.5L I4 MPI /</option>
+                <option value='AVENGER 4C 2.4L I4 S'>AVENGER 4C 2.4L I4 S</option>
+                <option value='IMPALA 3.9L V6 SFI'>IMPALA 3.9L V6 SFI</option>
+                <option value='HHR 2.4L I-4 MPI'>HHR 2.4L I-4 MPI</option>
+                <option value='MONTANA FWD 3.5L V6'>MONTANA FWD 3.5L V6</option>
+                <option value='MAXIMA 3.5L V6 MPI'>MAXIMA 3.5L V6 MPI</option>
+                <option value='CENTURY V6 3.1L V6 S'>CENTURY V6 3.1L V6 S</option>
+                <option value='FUSION 4C 2.3L I4 EF'>FUSION 4C 2.3L I4 EF</option>
+                <option value='RONDO V6 2.7L V6 DI'>RONDO V6 2.7L V6 DI</option>
+                <option value='FREESTYLE FWD V6 3.0'>FREESTYLE FWD V6 3.0</option>
+                <option value='DURANGO 4WD V8 4.7L'>DURANGO 4WD V8 4.7L</option>
+                <option value='IMPALA V6 3.5L V6 MP'>IMPALA V6 3.5L V6 MP</option>
+                <option value='IMPALA 3.8L V6 SFI'>IMPALA 3.8L V6 SFI</option>
+                <option value='LACROSSE'>LACROSSE</option>
+                <option value='TUNDRA PICKUP 2WD V8'>TUNDRA PICKUP 2WD V8</option>
+                <option value='MARINER 2WD V6'>MARINER 2WD V6</option>
+                <option value='GRAND MARQUIS'>GRAND MARQUIS</option>
+                <option value='AURA 4C'>AURA 4C</option>
+                <option value='MARINER 4WD V6'>MARINER 4WD V6</option>
+                <option value='EXPLORER AWD V6'>EXPLORER AWD V6</option>
+                <option value='BEETLE'>BEETLE</option>
+                <option value='VUE 2WD V6'>VUE 2WD V6</option>
+                <option value='YUKON XL 1500 4WD'>YUKON XL 1500 4WD</option>
+                <option value='SONATA 4C MFI I-4 2.'>SONATA 4C MFI I-4 2.</option>
+                <option value='SANTA FE 2WD V6 2.7L'>SANTA FE 2WD V6 2.7L</option>
+                <option value='NEON 2.0L I4 SFI'>NEON 2.0L I4 SFI</option>
+                <option value='XG 350 3.5L V6 EFI /'>XG 350 3.5L V6 EFI /</option>
+                <option value='TRACKER 2WD 4C 2.0L'>TRACKER 2WD 4C 2.0L</option>
+                <option value='GRAND CHEROKEE 2WD 6'>GRAND CHEROKEE 2WD 6</option>
+                <option value='LANCER 2.0L I4 MPI'>LANCER 2.0L I4 MPI</option>
+                <option value='MUSTANG V6 3.9L V6 E'>MUSTANG V6 3.9L V6 E</option>
+                <option value='SABLE 3.0L V6 EFI DO'>SABLE 3.0L V6 EFI DO</option>
+                <option value='SPORTAGE 2WD Multipl'>SPORTAGE 2WD Multipl</option>
+                <option value='FREESTAR FWD V6 3.9L'>FREESTAR FWD V6 3.9L</option>
+                <option value='FREESTYLE AWD V6 3.0'>FREESTYLE AWD V6 3.0</option>
+                <option value='ESCAPE 4WD V6 3.0L V'>ESCAPE 4WD V6 3.0L V</option>
+                <option value='XTERRA 2WD V6 3.3L V'>XTERRA 2WD V6 3.3L V</option>
+                <option value='ELEMENT 2WD 2.4L I4'>ELEMENT 2WD 2.4L I4</option>
+                <option value='LE SABRE 3.8L V6 MFI'>LE SABRE 3.8L V6 MFI</option>
+                <option value='EXPEDITION 2WD V8 5.'>EXPEDITION 2WD V8 5.</option>
+                <option value='SPECTRA 1.8L I4 EFI'>SPECTRA 1.8L I4 EFI</option>
+                <option value='OPTIMA V6'>OPTIMA V6</option>
+                <option value='VUE AWD V6'>VUE AWD V6</option>
+                <option value='BRAVADA AWD V6'>BRAVADA AWD V6</option>
+                <option value='CONCORDE'>CONCORDE</option>
+                <option value='CAMRY SOLARA 4C'>CAMRY SOLARA 4C</option>
+                <option value='FRONTIER PICKUP 2WD'>FRONTIER PICKUP 2WD</option>
+                <option value='TOWN CAR'>TOWN CAR</option>
+                <option value='MPV 2WD V6'>MPV 2WD V6</option>
+                <option value='SANTA FE 2WD 4C'>SANTA FE 2WD 4C</option>
+                <option value='2500 RAM PICKUP 4WD'>2500 RAM PICKUP 4WD</option>
+                <option value='PROTEGE'>PROTEGE</option>
+                <option value='626 V6 2.5L V6 EFI D'>626 V6 2.5L V6 EFI D</option>
+                <option value='S SERIES 1.9L I-4 SF'>S SERIES 1.9L I-4 SF</option>
+                <option value='FOCUS 2.0L I4 SPI'>FOCUS 2.0L I4 SPI</option>
+                <option value='BONNEVILLE 3.8L V6 M'>BONNEVILLE 3.8L V6 M</option>
+                <option value='RENO 2.0L I4 DI / EF'>RENO 2.0L I4 DI / EF</option>
+                <option value='INTREPID 3.5L V6 MPI'>INTREPID 3.5L V6 MPI</option>
+                <option value='BEETLE 2.0L I4 EFI'>BEETLE 2.0L I4 EFI</option>
+                <option value='FOCUS 2.0L I-4 SFI S'>FOCUS 2.0L I-4 SFI S</option>
+                <option value='STRATUS V6 2.7L V6 M'>STRATUS V6 2.7L V6 M</option>
+                <option value='CARAVAN FWD V6 3.3L'>CARAVAN FWD V6 3.3L</option>
+                <option value='SABLE 3.0L V6 2V /EF'>SABLE 3.0L V6 2V /EF</option>
+                <option value='ESCAPE 2WD 4C 2.0L I'>ESCAPE 2WD 4C 2.0L I</option>
+                <option value='LANCER 2.4L I4 MPI'>LANCER 2.4L I4 MPI</option>
+                <option value='L SERIES 2.2L I4 MPI'>L SERIES 2.2L I4 MPI</option>
+                <option value='TACOMA PICKUP 2WD 4C'>TACOMA PICKUP 2WD 4C</option>
+                <option value='TAURUS 3.0L V6 EFI F'>TAURUS 3.0L V6 EFI F</option>
+                <option value='ESCAPE 2WD 4C 2.3L I'>ESCAPE 2WD 4C 2.3L I</option>
+                <option value='OUTLANDER 2WD 4C 2.4'>OUTLANDER 2WD 4C 2.4</option>
+                <option value='ALERO 4C 2.4L I4 SFI'>ALERO 4C 2.4L I4 SFI</option>
+                <option value='PARK AVENUE 3.8L V6'>PARK AVENUE 3.8L V6</option>
+                <option value='GRAND PRIX 3.1L V6 S'>GRAND PRIX 3.1L V6 S</option>
+                <option value='MATRIX AWD'>MATRIX AWD</option>
+                <option value='L SERIES 2.0L I-4 MP'>L SERIES 2.0L I-4 MP</option>
+                <option value='ENDEAVOR FWD 3.8L V6'>ENDEAVOR FWD 3.8L V6</option>
+                <option value='FOCUS 2.3L I-4 DOHC'>FOCUS 2.3L I-4 DOHC</option>
+                <option value='MAZDA3 2.0L I-4 MPI'>MAZDA3 2.0L I-4 MPI</option>
+                <option value='ECHO 1.5L I4 EFI'>ECHO 1.5L I4 EFI</option>
+                <option value='PROTEGE 5 2.0L I-4 M'>PROTEGE 5 2.0L I-4 M</option>
+                <option value='RENDEZVOUS AWD 3.4L'>RENDEZVOUS AWD 3.4L</option>
+                <option value='F150 PICKUP 2WD V6 4'>F150 PICKUP 2WD V6 4</option>
+                <option value='XG 350'>XG 350</option>
+                <option value='SANTA FE 4WD V6'>SANTA FE 4WD V6</option>
+                <option value='TRACKER 2WD 4C'>TRACKER 2WD 4C</option>
+                <option value='SONOMA PICKUP 2WD V6'>SONOMA PICKUP 2WD V6</option>
+                <option value='HIGHLANDER 2WD 4C'>HIGHLANDER 2WD 4C</option>
+                <option value='RAINIER RWD V6'>RAINIER RWD V6</option>
+                <option value='SORENTO 2WD'>SORENTO 2WD</option>
+                <option value='MAGNUM V8'>MAGNUM V8</option>
+                <option value='300 3.5L V6 MPI / SM'>300 3.5L V6 MPI / SM</option>
+                <option value='BEETLE 2.0L I4 MFI /'>BEETLE 2.0L I4 MFI /</option>
+                <option value='DURANGO 2WD V6 3.7L'>DURANGO 2WD V6 3.7L</option>
+                <option value='HHR 2.2L I4 MPI / SF'>HHR 2.2L I4 MPI / SF</option>
+                <option value='LACROSSE 3.6L V6 SFI'>LACROSSE 3.6L V6 SFI</option>
+                <option value='XB 1.5L I-4 EFI DOHC'>XB 1.5L I-4 EFI DOHC</option>
+                <option value='300 3.5L / 6.0L V12'>300 3.5L / 6.0L V12</option>
+                <option value='PACIFICA AWD 4.0L V6'>PACIFICA AWD 4.0L V6</option>
+                <option value='MAZDA6 2.3L I4 MPI'>MAZDA6 2.3L I4 MPI</option>
+                <option value='NITRO 4WD V6 3.7L V6'>NITRO 4WD V6 3.7L V6</option>
+                <option value='PACIFICA FWD 4.0L V6'>PACIFICA FWD 4.0L V6</option>
+                <option value='MUSTANG V6 Unspecifi'>MUSTANG V6 Unspecifi</option>
+                <option value='MONTANA FWD'>MONTANA FWD</option>
+                <option value='1500 SIERRA PICKUP 4'>1500 SIERRA PICKUP 4</option>
+                <option value='PATRIOT FWD 4C'>PATRIOT FWD 4C</option>
+                <option value='AVENGER'>AVENGER</option>
+                <option value='COMMANDER 2WD V8'>COMMANDER 2WD V8</option>
+                <option value='MALIBU V6 3.5L V6 MF'>MALIBU V6 3.5L V6 MF</option>
+                <option value='FORENZA 2.0L I4 DI /'>FORENZA 2.0L I4 DI /</option>
+                <option value='TERRAZA FWD V6 3.5L'>TERRAZA FWD V6 3.5L</option>
+                <option value='MAZDA6 3.0L V6 MFI /'>MAZDA6 3.0L V6 MFI /</option>
+                <option value='ENVOY XL 2WD V8'>ENVOY XL 2WD V8</option>
+                <option value='SEDONA'>SEDONA</option>
+                <option value='ARMADA 4WD V8'>ARMADA 4WD V8</option>
+                <option value='ENVOY 4WD 6C 4.2L I6'>ENVOY 4WD 6C 4.2L I6</option>
+                <option value='SEBRING V6 3.0L V6 M'>SEBRING V6 3.0L V6 M</option>
+                <option value='RIO MFI I-4 1.6L DOH'>RIO MFI I-4 1.6L DOH</option>
+                <option value='HHR 2.2L I-4 MPI DOH'>HHR 2.2L I-4 MPI DOH</option>
+                <option value='GRAND PRIX 3.8L V6 M'>GRAND PRIX 3.8L V6 M</option>
+                <option value='AMANTI 3.5L V6 MPI'>AMANTI 3.5L V6 MPI</option>
+                <option value='ALTIMA 2.4L I4 EFI'>ALTIMA 2.4L I4 EFI</option>
+                <option value='REGAL 3.8L V6 MFI SC'>REGAL 3.8L V6 MFI SC</option>
+                <option value='TAHOE 2WD 5.3L V8 SF'>TAHOE 2WD 5.3L V8 SF</option>
+                <option value='YUKON XL 1500 2WD 5.'>YUKON XL 1500 2WD 5.</option>
+                <option value='LE SABRE Unspecified'>LE SABRE Unspecified</option>
+                <option value='LANCER 2.4L I4 EFI'>LANCER 2.4L I4 EFI</option>
+                <option value='MONTANA 3.4L V6 SFI'>MONTANA 3.4L V6 SFI</option>
+                <option value='TAHOE 4WD 5.3L V8 SF'>TAHOE 4WD 5.3L V8 SF</option>
+                <option value='MONTERO SPORT 2WD V6'>MONTERO SPORT 2WD V6</option>
+                <option value='MONTANA 3.4L V6 EFI'>MONTANA 3.4L V6 EFI</option>
+                <option value='CAMRY V6 3.0L V6 SFI'>CAMRY V6 3.0L V6 SFI</option>
+                <option value='S SERIES 1.9L I4 SFI'>S SERIES 1.9L I4 SFI</option>
+                <option value='VIBE 1.8L I4 MFI / M'>VIBE 1.8L I4 MFI / M</option>
+                <option value='COMMANDER 2WD V6 3.7'>COMMANDER 2WD V6 3.7</option>
+                <option value='4 RUNNER 2WD V8 4.7L'>4 RUNNER 2WD V8 4.7L</option>
+                <option value='SUBURBAN 1500 4WD'>SUBURBAN 1500 4WD</option>
+                <option value='COMMANDER 2WD V6'>COMMANDER 2WD V6</option>
+                <option value='MONTEGO 3.0L V6 EFI'>MONTEGO 3.0L V6 EFI</option>
+                <option value='G5 4C 2.2L I4 MPI'>G5 4C 2.2L I4 MPI</option>
+                <option value='GALANT 4C 2.4L I4 EF'>GALANT 4C 2.4L I4 EF</option>
+                <option value='ENVOY XL 4WD V8'>ENVOY XL 4WD V8</option>
+                <option value='MOUNTAINEER AWD V8'>MOUNTAINEER AWD V8</option>
+                <option value='MOUNTAINEER AWD V6'>MOUNTAINEER AWD V6</option>
+                <option value='ASCENDER 2WD 6C'>ASCENDER 2WD 6C</option>
+                <option value='COMMANDER 4WD V8'>COMMANDER 4WD V8</option>
+                <option value='ELEMENT 4WD'>ELEMENT 4WD</option>
+                <option value='CTS'>CTS</option>
+                <option value='MONTEREY'>MONTEREY</option>
+                <option value='QUEST 3.5L V6 EFI /'>QUEST 3.5L V6 EFI /</option>
+                <option value='MARINER 4WD V6 3.0L'>MARINER 4WD V6 3.0L</option>
+                <option value='G6 4C 2.4L I4 MFI /'>G6 4C 2.4L I4 MFI /</option>
+                <option value='XL-7 4WD 2.7L V6 MPI'>XL-7 4WD 2.7L V6 MPI</option>
+                <option value='COMMANDER 4WD V8 4.7'>COMMANDER 4WD V8 4.7</option>
+                <option value='ALERO 4C 2.2L I4 MPI'>ALERO 4C 2.2L I4 MPI</option>
+                <option value='TRIBUTE 4WD V6 3.0L'>TRIBUTE 4WD V6 3.0L</option>
+                <option value='DURANGO 2WD V8 5.7L'>DURANGO 2WD V8 5.7L</option>
+                <option value='COMMANDER 4WD V6'>COMMANDER 4WD V6</option>
+                <option value='HIGHLANDER 2WD V6 3.'>HIGHLANDER 2WD V6 3.</option>
+                <option value='TAURUS X FWD V6'>TAURUS X FWD V6</option>
+                <option value='2500HD SILVERADO PIC'>2500HD SILVERADO PIC</option>
+                <option value='S40'>S40</option>
+                <option value='2500 RAM PICKUP 2WD'>2500 RAM PICKUP 2WD</option>
+                <option value='YUKON XL 1500 2WD'>YUKON XL 1500 2WD</option>
+                <option value='MPV 2WD V6 3.0L V6 M'>MPV 2WD V6 3.0L V6 M</option>
+                <option value='VIBE 1.8L I-4 MPI'>VIBE 1.8L I-4 MPI</option>
+                <option value='SUNFIRE 2.2L I4 MPI'>SUNFIRE 2.2L I4 MPI</option>
+                <option value='MOUNTAINEER 2WD V8'>MOUNTAINEER 2WD V8</option>
+                <option value='AVALON'>AVALON</option>
+                <option value='COMPASS 4WD 4C'>COMPASS 4WD 4C</option>
+                <option value='DAKOTA PICKUP 4WD V6'>DAKOTA PICKUP 4WD V6</option>
+                <option value='ASPEN 2WD V8'>ASPEN 2WD V8</option>
+                <option value='MURANO 2WD V6'>MURANO 2WD V6</option>
+                <option value='QUEST'>QUEST</option>
+                <option value='QX4 4WD V6'>QX4 4WD V6</option>
+                <option value='MIATA MX-5'>MIATA MX-5</option>
+                <option value='JETTA 4C'>JETTA 4C</option>
+                <option value='RIO 5'>RIO 5</option>
+                <option value='ION 2.2L I4 MPI / SF'>ION 2.2L I4 MPI / SF</option>
+                <option value='EXPLORER 4WD V8'>EXPLORER 4WD V8</option>
+                <option value='CONTINENTAL'>CONTINENTAL</option>
+                <option value='SRX AWD V6'>SRX AWD V6</option>
+                <option value='NITRO 4WD V6'>NITRO 4WD V6</option>
+                <option value='GRAND VITARA 2WD'>GRAND VITARA 2WD</option>
+                <option value='XA'>XA</option>
+                <option value='TAURUS 3.0L V6 SFI'>TAURUS 3.0L V6 SFI</option>
+                <option value='ENVOY XL 2WD 6C 4.2L'>ENVOY XL 2WD 6C 4.2L</option>
+                <option value='FREESTAR FWD V6 4.2L'>FREESTAR FWD V6 4.2L</option>
+                <option value='NEON 2.0L I4 SFI / S'>NEON 2.0L I4 SFI / S</option>
+                <option value='OPTIMA V6 MFI V6 2.7'>OPTIMA V6 MFI V6 2.7</option>
+                <option value='ACCENT MFI I-4 1.6L'>ACCENT MFI I-4 1.6L</option>
+                <option value='G6 4C 2.4L I-4 MPI'>G6 4C 2.4L I-4 MPI</option>
+                <option value='EXPEDITION 2WD V8 4.'>EXPEDITION 2WD V8 4.</option>
+                <option value='FOCUS 2.0L I-4 SFI D'>FOCUS 2.0L I-4 SFI D</option>
+                <option value='SEBRING 4C 2.4L I-4'>SEBRING 4C 2.4L I-4</option>
+                <option value='ALTIMA 2.5L I4 EFI'>ALTIMA 2.5L I4 EFI</option>
+                <option value='EXPEDITION 4WD V8 4.'>EXPEDITION 4WD V8 4.</option>
+                <option value='RELAY 2WD V6 3.5L V6'>RELAY 2WD V6 3.5L V6</option>
+                <option value='SUBURBAN 1500 2WD 5.'>SUBURBAN 1500 2WD 5.</option>
+                <option value='VITARA 2WD 4C MFI V6'>VITARA 2WD 4C MFI V6</option>
+                <option value='CANYON PICKUP 2WD I5'>CANYON PICKUP 2WD I5</option>
+                <option value='ENVOY XL 2WD V8 5.3L'>ENVOY XL 2WD V8 5.3L</option>
+                <option value='DURANGO 4WD V8 SEFI'>DURANGO 4WD V8 SEFI</option>
+                <option value='SENTRA 1.8L I4 EFI /'>SENTRA 1.8L I4 EFI /</option>
+                <option value='VERONA 2.5L I6 MPI'>VERONA 2.5L I6 MPI</option>
+                <option value='ALTIMA MFI I-4 2.5L'>ALTIMA MFI I-4 2.5L</option>
+                <option value='AXIOM 2WD V6 3.5L V6'>AXIOM 2WD V6 3.5L V6</option>
+                <option value='MARINER 4WD 4C'>MARINER 4WD 4C</option>
+                <option value='SEBRING V6 MFI V6 2.'>SEBRING V6 MFI V6 2.</option>
+                <option value='COBALT 2.2L I-4 MPI'>COBALT 2.2L I-4 MPI</option>
+                <option value='S10 PICKUP 2WD 4C 2.'>S10 PICKUP 2WD 4C 2.</option>
+                <option value='YUKON 4WD V8 4.8L V8'>YUKON 4WD V8 4.8L V8</option>
+                <option value='S10 PICKUP 4WD V6 4.'>S10 PICKUP 4WD V6 4.</option>
+                <option value='SPECTRA 5 2.0L I4 EF'>SPECTRA 5 2.0L I4 EF</option>
+                <option value='SANTA FE 2WD 4C 2.4L'>SANTA FE 2WD 4C 2.4L</option>
+                <option value='COLORADO PICKUP 4WD'>COLORADO PICKUP 4WD</option>
+                <option value='FOCUS 2.0L I4 EFI'>FOCUS 2.0L I4 EFI</option>
+                <option value='AVEO 1.6L I-4 MPI DO'>AVEO 1.6L I-4 MPI DO</option>
+                <option value='SUBURBAN 1500 4WD 5.'>SUBURBAN 1500 4WD 5.</option>
+                <option value='ECLIPSE 3.8L V6 MPI'>ECLIPSE 3.8L V6 MPI</option>
+                <option value='CAMRY 4C 2.4L I-4 SF'>CAMRY 4C 2.4L I-4 SF</option>
+                <option value='SABLE 3.0L V6 4V /EF'>SABLE 3.0L V6 4V /EF</option>
+                <option value='MILAN 4C 2.3L I4 EFI'>MILAN 4C 2.3L I4 EFI</option>
+                <option value='SPORTAGE 2WD 4C 2.7L'>SPORTAGE 2WD 4C 2.7L</option>
+                <option value='I-280 PICKUP 2WD 4C'>I-280 PICKUP 2WD 4C</option>
+                <option value='RONDO 4C'>RONDO 4C</option>
+                <option value='MONTE CARLO 3.9L V6'>MONTE CARLO 3.9L V6</option>
+                <option value='CAMRY 4C 2.4L I4 SFI'>CAMRY 4C 2.4L I4 SFI</option>
+                <option value='TRIBUTE 2WD 4C 2.3L'>TRIBUTE 2WD 4C 2.3L</option>
+                <option value='IMPALA 3.5L V6 SFI F'>IMPALA 3.5L V6 SFI F</option>
+                <option value='MONTERO SPORT 4WD V6'>MONTERO SPORT 4WD V6</option>
+                <option value='YUKON 2WD V8 4.8L V8'>YUKON 2WD V8 4.8L V8</option>
+                <option value='MAGNUM V8 5.7L V8 SF'>MAGNUM V8 5.7L V8 SF</option>
+                <option value='AZERA 3.8L V6 MPI'>AZERA 3.8L V6 MPI</option>
+                <option value='CANYON PICKUP 4WD I5'>CANYON PICKUP 4WD I5</option>
+                <option value='PT CRUISER 2.4L I4 D'>PT CRUISER 2.4L I4 D</option>
+                <option value='UPLANDER AWD V6'>UPLANDER AWD V6</option>
+                <option value='XL-7 2WD'>XL-7 2WD</option>
+                <option value='GS450H'>GS450H</option>
+                <option value='MONTE CARLO 3.8L V6'>MONTE CARLO 3.8L V6</option>
+                <option value='ELEMENT 4WD 2.4L I4'>ELEMENT 4WD 2.4L I4</option>
+                <option value='G6 V6 3.5L V6 MFI /'>G6 V6 3.5L V6 MFI /</option>
+                <option value='TORRENT FWD V6 3.4L'>TORRENT FWD V6 3.4L</option>
+                <option value='L SERIES 2.2L I4 SFI'>L SERIES 2.2L I4 SFI</option>
+                <option value='RENDEZVOUS FWD 3.5L'>RENDEZVOUS FWD 3.5L</option>
+                <option value='ALERO 4C 2.2L I-4 MP'>ALERO 4C 2.2L I-4 MP</option>
+                <option value='GALANT 4C Multiple E'>GALANT 4C Multiple E</option>
+                <option value='COMPASS 2WD 4C 2.4L'>COMPASS 2WD 4C 2.4L</option>
+                <option value='VIBE AWD MFI I-4 1.8'>VIBE AWD MFI I-4 1.8</option>
+                <option value='G35'>G35</option>
+                <option value='RAINIER AWD V6'>RAINIER AWD V6</option>
+                <option value='GS300'>GS300</option>
+                <option value='BONNEVILLE'>BONNEVILLE</option>
+                <option value='ODYSSEY'>ODYSSEY</option>
+                <option value='OUTLANDER AWD 4C'>OUTLANDER AWD 4C</option>
+                <option value='NAVIGATOR 4WD V8'>NAVIGATOR 4WD V8</option>
+                <option value='TORRENT AWD V6'>TORRENT AWD V6</option>
+                <option value='S10 PICKUP 2WD V6'>S10 PICKUP 2WD V6</option>
+                <option value='OPTIMA'>OPTIMA</option>
+                <option value='YUKON 2WD V8'>YUKON 2WD V8</option>
+                <option value='SABLE 3.0L V6 EFI SO'>SABLE 3.0L V6 EFI SO</option>
+                <option value='MONTEREY 4.2L V6 SPI'>MONTEREY 4.2L V6 SPI</option>
+                <option value='AVEO 1.6L I4 DOHC'>AVEO 1.6L I4 DOHC</option>
+                <option value='GALANT V6 3.0L V6 EF'>GALANT V6 3.0L V6 EF</option>
+                <option value='SENTRA 1.8L I-4 EFI'>SENTRA 1.8L I-4 EFI</option>
+                <option value='NAVIGATOR 2WD V8 5.4'>NAVIGATOR 2WD V8 5.4</option>
+                <option value='MARINER 2WD 4C 2.3L'>MARINER 2WD 4C 2.3L</option>
+                <option value='300M 3.5L V6 MPI'>300M 3.5L V6 MPI</option>
+                <option value='PROTEGE 2.0L I4 EFI'>PROTEGE 2.0L I4 EFI</option>
+                <option value='XTERRA 4WD V6 3.3L V'>XTERRA 4WD V6 3.3L V</option>
+                <option value='CAVALIER 4C 2.2L I-4'>CAVALIER 4C 2.2L I-4</option>
+                <option value='G6 V6 3.9L V6 SFI'>G6 V6 3.9L V6 SFI</option>
+                <option value='OPTIMA V6 2.7L V6 MP'>OPTIMA V6 2.7L V6 MP</option>
+                <option value='GALANT V6 3.8L V6 MP'>GALANT V6 3.8L V6 MP</option>
+                <option value='FOCUS 2.0L I4 MFI /'>FOCUS 2.0L I4 MFI /</option>
+                <option value='RAINIER RWD V6 4.2L'>RAINIER RWD V6 4.2L</option>
+                <option value='MAZDA3 2.0L I4 MFI /'>MAZDA3 2.0L I4 MFI /</option>
+                <option value='SPORTAGE 2WD V6 2.7L'>SPORTAGE 2WD V6 2.7L</option>
+                <option value='PILOT 3.5L V6 MPI'>PILOT 3.5L V6 MPI</option>
+                <option value='SEDONA 3.8L V6 MPI'>SEDONA 3.8L V6 MPI</option>
+                <option value='CAVALIER 4C 2.4L I-4'>CAVALIER 4C 2.4L I-4</option>
+                <option value='RAINIER AWD V6 4.2L'>RAINIER AWD V6 4.2L</option>
+                <option value='NITRO 2WD V6 3.7L V6'>NITRO 2WD V6 3.7L V6</option>
+                <option value='OUTLANDER 2WD 4C'>OUTLANDER 2WD 4C</option>
+                <option value='CAMARO V6'>CAMARO V6</option>
+                <option value='VOYAGER FWD V6 3.3L'>VOYAGER FWD V6 3.3L</option>
+                <option value='XB 1.5L I4 EFI'>XB 1.5L I4 EFI</option>
+                <option value='EXPLORER 2WD V8 4.6L'>EXPLORER 2WD V8 4.6L</option>
+                <option value='LE SABRE 3.8L V6 MPI'>LE SABRE 3.8L V6 MPI</option>
+                <option value='TRIBUTE 2WD V6 3.0L'>TRIBUTE 2WD V6 3.0L</option>
+                <option value='VERONA 2.5L I6 DI /'>VERONA 2.5L I6 DI /</option>
+                <option value='ECLIPSE 2.4L I4 EFI'>ECLIPSE 2.4L I4 EFI</option>
+                <option value='B3000 PICKUP 2WD V6'>B3000 PICKUP 2WD V6</option>
+                <option value='GALANT 4C 2.4L I-4 E'>GALANT 4C 2.4L I-4 E</option>
+                <option value='REGAL 3.8L V6 MFI'>REGAL 3.8L V6 MFI</option>
+                <option value='MONTANA FWD 3.4L V6'>MONTANA FWD 3.4L V6</option>
+                <option value='MAZDA3 2.3L I4 MFI /'>MAZDA3 2.3L I4 MFI /</option>
+                <option value='IMPALA 3.8L V6 MFI'>IMPALA 3.8L V6 MFI</option>
+                <option value='SPECTRA 2.0L I-4 EFI'>SPECTRA 2.0L I-4 EFI</option>
+                <option value='STRATUS V6 3.0L V6 E'>STRATUS V6 3.0L V6 E</option>
+                <option value='XTERRA 4WD V6'>XTERRA 4WD V6</option>
+                <option value='CARAVAN GRAND AWD V6'>CARAVAN GRAND AWD V6</option>
+                <option value='SX4'>SX4</option>
+                <option value='YUKON AWD V8'>YUKON AWD V8</option>
+                <option value='PATHFINDER 4WD V6'>PATHFINDER 4WD V6</option>
+                <option value='CR-V 4WD'>CR-V 4WD</option>
+                <option value='TUCSON 2WD V6'>TUCSON 2WD V6</option>
+                <option value='COMPASS FWD 4C'>COMPASS FWD 4C</option>
+                <option value='PATHFINDER 2WD V6'>PATHFINDER 2WD V6</option>
+                <option value='TUCSON 4WD 4C'>TUCSON 4WD 4C</option>
+                <option value='ASCENDER 4WD 6C'>ASCENDER 4WD 6C</option>
+                <option value='SPECTRA 5'>SPECTRA 5</option>
+                <option value='TUCSON 4WD V6'>TUCSON 4WD V6</option>
+                <option value='350Z MFI V6 3.5L DOH'>350Z MFI V6 3.5L DOH</option>
+                <option value='GRAND VITARA 4WD 2.7'>GRAND VITARA 4WD 2.7</option>
+                <option value='CAMRY 4C 2.4L I-4 EF'>CAMRY 4C 2.4L I-4 EF</option>
+                <option value='XL-7 4WD 2.7L V6 MFI'>XL-7 4WD 2.7L V6 MFI</option>
+                <option value='TAURUS 3.0L V6 EFI D'>TAURUS 3.0L V6 EFI D</option>
+                <option value='L SERIES 3.0L V6 EFI'>L SERIES 3.0L V6 EFI</option>
+                <option value='AERIO 2.0L I4 EFI'>AERIO 2.0L I4 EFI</option>
+                <option value='SEQUOIA 2WD 4.7L V8'>SEQUOIA 2WD 4.7L V8</option>
+                <option value='MAZDA3 2.0L I4 MPI'>MAZDA3 2.0L I4 MPI</option>
+                <option value='ALTIMA MFI V6 3.5L D'>ALTIMA MFI V6 3.5L D</option>
+                <option value='TUCSON 2WD 4C 2.0L I'>TUCSON 2WD 4C 2.0L I</option>
+                <option value='SPORTAGE 4WD 2.0L I4'>SPORTAGE 4WD 2.0L I4</option>
+                <option value='UPLANDER AWD V6 3.5L'>UPLANDER AWD V6 3.5L</option>
+                <option value='MAZDA6 3.0L V6 MPI'>MAZDA6 3.0L V6 MPI</option>
+                <option value='COMMANDER 4WD V6 3.7'>COMMANDER 4WD V6 3.7</option>
+                <option value='ES300 3.0L V6 EFI'>ES300 3.0L V6 EFI</option>
+                <option value='ENVOY 4WD V8 5.3L V8'>ENVOY 4WD V8 5.3L V8</option>
+                <option value='COUPE 1.9L I-4 SFI D'>COUPE 1.9L I-4 SFI D</option>
+                <option value='PATHFINDER 4WD V6 3.'>PATHFINDER 4WD V6 3.</option>
+                <option value='XTERRA 2WD 4C 2.4L I'>XTERRA 2WD 4C 2.4L I</option>
+                <option value='L SERIES 2.0L I4 MPI'>L SERIES 2.0L I4 MPI</option>
+                <option value='SONOMA PICKUP 2WD 4C'>SONOMA PICKUP 2WD 4C</option>
+                <option value='RENO 2.0L I-4 EFI DO'>RENO 2.0L I-4 EFI DO</option>
+                <option value='TUNDRA PICKUP 4WD V8'>TUNDRA PICKUP 4WD V8</option>
+                <option value='CONTINENTAL 4.6L V8'>CONTINENTAL 4.6L V8</option>
+                <option value='AURA 3.5L V6 SFI'>AURA 3.5L V6 SFI</option>
+                <option value='MPV 2WD V6 MFI V6 3.'>MPV 2WD V6 MFI V6 3.</option>
+                <option value='MONTANA AWD 3.5L V6'>MONTANA AWD 3.5L V6</option>
+                <option value='MURANO AWD V6 3.5L V'>MURANO AWD V6 3.5L V</option>
+                <option value='SABLE 3.0L V6 EFI 4B'>SABLE 3.0L V6 EFI 4B</option>
+                <option value='CR-V 4WD 2.0L I-4 MP'>CR-V 4WD 2.0L I-4 MP</option>
+                <option value='PATHFINDER 4WD V6 MF'>PATHFINDER 4WD V6 MF</option>
+                <option value='ECHO Multiple Engine'>ECHO Multiple Engine</option>
+                <option value='300C'>300C</option>
+                <option value='SRX AWD V8 4.6L V8 S'>SRX AWD V8 4.6L V8 S</option>
+                <option value='ION 2.2L I-4 MPI DOH'>ION 2.2L I-4 MPI DOH</option>
+                <option value='MAXIMA 3.5L V6 MPI /'>MAXIMA 3.5L V6 MPI /</option>
+                <option value='SANTA FE 2WD V6 3.5L'>SANTA FE 2WD V6 3.5L</option>
+                <option value='IMPALA 3.8L V6 MFI S'>IMPALA 3.8L V6 MFI S</option>
+                <option value='YUKON 4WD V8 5.3L V8'>YUKON 4WD V8 5.3L V8</option>
+                <option value='VUE 2WD 4C 2.2L I-4'>VUE 2WD 4C 2.2L I-4</option>
+                <option value='FOCUS 2.3L I4 DOHC'>FOCUS 2.3L I4 DOHC</option>
+                <option value='TRACKER 4WD 4C'>TRACKER 4WD 4C</option>
+                <option value='SOLSTICE'>SOLSTICE</option>
+                <option value='ZEPHYR'>ZEPHYR</option>
+                <option value='TL'>TL</option>
+                <option value='YUKON 4WD V8'>YUKON 4WD V8</option>
+                <option value='TRIBUTE 4WD 4C'>TRIBUTE 4WD 4C</option>
+                <option value='ESCORT 2.0L I4 EFI'>ESCORT 2.0L I4 EFI</option>
+                <option value='AZERA'>AZERA</option>
+                <option value='626 V6'>626 V6</option>
+                <option value='GRAND MARQUIS 4.6L V'>GRAND MARQUIS 4.6L V</option>
+                <option value='TIBURON MFI I-4 2.0L'>TIBURON MFI I-4 2.0L</option>
+                <option value='AERIO'>AERIO</option>
+                <option value='ENVOY XL 4WD V8 5.3L'>ENVOY XL 4WD V8 5.3L</option>
+                <option value='ES300'>ES300</option>
+                <option value='ECLIPSE EI V6 3.0L S'>ECLIPSE EI V6 3.0L S</option>
+                <option value='MAXIMA 3.0L V6 EFI D'>MAXIMA 3.0L V6 EFI D</option>
+                <option value='STRATUS 4C 2.4L I-4'>STRATUS 4C 2.4L I-4</option>
+                <option value='MOUNTAINEER AWD V8 4'>MOUNTAINEER AWD V8 4</option>
+                <option value='ESCAPE 4WD 4C'>ESCAPE 4WD 4C</option>
+                <option value='300C 5.7L V8 SFI / S'>300C 5.7L V8 SFI / S</option>
+                <option value='EXPLORER AWD V6 4.0L'>EXPLORER AWD V6 4.0L</option>
+                <option value='RX400H AWD'>RX400H AWD</option>
+                <option value='VOYAGER FWD 4C 2.4L'>VOYAGER FWD 4C 2.4L</option>
+                <option value='MONTERO 4WD V6 3.5L'>MONTERO 4WD V6 3.5L</option>
+                <option value='PATHFINDER 2WD V6 MF'>PATHFINDER 2WD V6 MF</option>
+                <option value='STRATUS V6 2.4L I-4'>STRATUS V6 2.4L I-4</option>
+                <option value='FUSION V6 3.0L V6 EF'>FUSION V6 3.0L V6 EF</option>
+                <option value='MONTERO 4WD V6'>MONTERO 4WD V6</option>
+                <option value='SPORTAGE 2WD V6'>SPORTAGE 2WD V6</option>
+                <option value='CELICA'>CELICA</option>
+                <option value='MDX 4WD'>MDX 4WD</option>
+                <option value='350Z'>350Z</option>
+                <option value='SILHOUETTE 3.4L V6 S'>SILHOUETTE 3.4L V6 S</option>
+                <option value='FOCUS 2.0L I4 SFI /'>FOCUS 2.0L I4 SFI /</option>
+                <option value='GRAND AM 4C 2.2L I-4'>GRAND AM 4C 2.2L I-4</option>
+                <option value='LEGACY'>LEGACY</option>
+                <option value='FX35 AWD'>FX35 AWD</option>
+                <option value='VENTURE FWD V6 3.5L'>VENTURE FWD V6 3.5L</option>
+                <option value='VENTURE AWD V6 3.4L'>VENTURE AWD V6 3.4L</option>
+                <option value='IMPREZA'>IMPREZA</option>
+                <option value='DAKOTA PICKUP 2WD 4C'>DAKOTA PICKUP 2WD 4C</option>
+                <option value='MAZDA3 2.3L I4 MPI'>MAZDA3 2.3L I4 MPI</option>
+                <option value='MURANO 2WD V6 3.5L V'>MURANO 2WD V6 3.5L V</option>
+                <option value='EXPLORER 4WD V8 4.6L'>EXPLORER 4WD V8 4.6L</option>
+                <option value='B2300 PICKUP 2WD 4C'>B2300 PICKUP 2WD 4C</option>
+                <option value='1500HD SIERRA PICKUP'>1500HD SIERRA PICKUP</option>
+                <option value='F150 PICKUP 4WD V6'>F150 PICKUP 4WD V6</option>
+                <option value='VUE 2WD V6 3.5L V6 M'>VUE 2WD V6 3.5L V6 M</option>
+                <option value='CHEROKEE 2WD 6C 4.0L'>CHEROKEE 2WD 6C 4.0L</option>
+                <option value='TIBURON 2.7L V6 MPI'>TIBURON 2.7L V6 MPI</option>
+                <option value='HIGHLANDER 4WD V6'>HIGHLANDER 4WD V6</option>
+                <option value='CAMRY V6 3.5L V6 SFI'>CAMRY V6 3.5L V6 SFI</option>
+                <option value='INTREPID'>INTREPID</option>
+                <option value='LS V6'>LS V6</option>
+                <option value='FJ CRUISER 4WD V6'>FJ CRUISER 4WD V6</option>
+                <option value='XL-7 2WD 2.7L V6 DI'>XL-7 2WD 2.7L V6 DI</option>
+                <option value='F150 PICKUP 4WD V8 5'>F150 PICKUP 4WD V8 5</option>
+                <option value='TRACKER 2WD V6 2.5L'>TRACKER 2WD V6 2.5L</option>
+                <option value='TIBURON MFI V6 2.7L'>TIBURON MFI V6 2.7L</option>
+                <option value='SIENNA 3.0L V6 MPI'>SIENNA 3.0L V6 MPI</option>
+                <option value='YUKON XL 1500 4WD 5.'>YUKON XL 1500 4WD 5.</option>
+                <option value='PROTEGE 5'>PROTEGE 5</option>
+                <option value='CAMARO V6 3.8L V6 MF'>CAMARO V6 3.8L V6 MF</option>
+                <option value='RAV-4 2WD'>RAV-4 2WD</option>
+                <option value='CHEROKEE 2WD 6C'>CHEROKEE 2WD 6C</option>
+                <option value='CHEROKEE 4WD 6C'>CHEROKEE 4WD 6C</option>
+                <option value='MUSTANG V8'>MUSTANG V8</option>
+                <option value='PRIZM'>PRIZM</option>
+                <option value='300C 5.7L V8 SFI'>300C 5.7L V8 SFI</option>
+                <option value='MUSTANG V8 4.6L V8 E'>MUSTANG V8 4.6L V8 E</option>
+                <option value='AVIATOR 2WD V8'>AVIATOR 2WD V8</option>
+                <option value='GRAND AM V6 Unspecif'>GRAND AM V6 Unspecif</option>
+                <option value='PROTEGE 2.0L I-4 EFI'>PROTEGE 2.0L I-4 EFI</option>
+                <option value='GRAND VITARA 2WD 2.7'>GRAND VITARA 2WD 2.7</option>
+                <option value='LS V6 3.0L V6 EFI'>LS V6 3.0L V6 EFI</option>
+                <option value='3.2 TL 3.2L V6 EFI'>3.2 TL 3.2L V6 EFI</option>
+                <option value='TUNDRA PICKUP 2WD V6'>TUNDRA PICKUP 2WD V6</option>
+                <option value='RONDO V6 2.7L V6 MPI'>RONDO V6 2.7L V6 MPI</option>
+                <option value='XG 300'>XG 300</option>
+                <option value='3.2 TL 3.2L V6 FI DO'>3.2 TL 3.2L V6 FI DO</option>
+                <option value='RANGER PICKUP 4WD V6'>RANGER PICKUP 4WD V6</option>
+                <option value='TC 2.4L I-4 EFI DOHC'>TC 2.4L I-4 EFI DOHC</option>
+                <option value='PATHFINDER 4WD V6 4.'>PATHFINDER 4WD V6 4.</option>
+                <option value='MONTANA AWD'>MONTANA AWD</option>
+                <option value='GS300 3.0L I6 EFI'>GS300 3.0L I6 EFI</option>
+                <option value='RAV-4 4WD'>RAV-4 4WD</option>
+                <option value='3.2 TL'>3.2 TL</option>
+                <option value='RELAY AWD V6'>RELAY AWD V6</option>
+                <option value='MPV 2WD V6 MFI V6 2.'>MPV 2WD V6 MFI V6 2.</option>
+                <option value='G8 V8'>G8 V8</option>
+                <option value='I30'>I30</option>
+                <option value='TOWN & COUNTRY AWD V'>TOWN & COUNTRY AWD V</option>
+                <option value='COOPER S'>COOPER S</option>
+                <option value='LIBERTY 2WD 4C 2.4L'>LIBERTY 2WD 4C 2.4L</option>
+                <option value='BEETLE 2.0L I4 MPI'>BEETLE 2.0L I4 MPI</option>
+                <option value='MATRIX 2WD 1.8L I-4'>MATRIX 2WD 1.8L I-4</option>
+                <option value='ENVOY XL 4WD 6C 4.2L'>ENVOY XL 4WD 6C 4.2L</option>
+                <option value='F250 PICKUP 2WD V8'>F250 PICKUP 2WD V8</option>
+                <option value='VUE AWD 4C'>VUE AWD 4C</option>
+                <option value='TITAN PICKUP 4WD V8'>TITAN PICKUP 4WD V8</option>
+                <option value='M35'>M35</option>
+                <option value='PILOT'>PILOT</option>
+                <option value='TOUAREG V8'>TOUAREG V8</option>
+                <option value='MAZDA3 2.3L I-4 MPI'>MAZDA3 2.3L I-4 MPI</option>
+                <option value='ALTIMA Multiple Engi'>ALTIMA Multiple Engi</option>
+                <option value='ZEPHYR 3.0L V6 SFI'>ZEPHYR 3.0L V6 SFI</option>
+                <option value='COOPER S 1.6L I4 EFI'>COOPER S 1.6L I4 EFI</option>
+                <option value='FOCUS 2.3L I4 MFI'>FOCUS 2.3L I4 MFI</option>
+                <option value='RENDEZVOUS AWD 3.5L'>RENDEZVOUS AWD 3.5L</option>
+                <option value='CAVALIER 4C 2.2L I 4'>CAVALIER 4C 2.2L I 4</option>
+                <option value='FIREBIRD V6'>FIREBIRD V6</option>
+                <option value='AERIO AWD'>AERIO AWD</option>
+                <option value='RONDO 4C 2.4L I4 DI'>RONDO 4C 2.4L I4 DI</option>
+                <option value='EDGE FWD V6'>EDGE FWD V6</option>
+                <option value='EDGE AWD V6'>EDGE AWD V6</option>
+                <option value='I-370 PICKUP 2WD 5C'>I-370 PICKUP 2WD 5C</option>
+                <option value='ION 2.2L I-4 EFI DOH'>ION 2.2L I-4 EFI DOH</option>
+                <option value='XG 300 Unspecified'>XG 300 Unspecified</option>
+                <option value='SUNFIRE 2.2L I-4 MPI'>SUNFIRE 2.2L I-4 MPI</option>
+                <option value='300M 3.5L V6 MPI HO'>300M 3.5L V6 MPI HO</option>
+                <option value='VERONA 2.5L I-6 MPI'>VERONA 2.5L I-6 MPI</option>
+                <option value='MAZDA6 3.0L V6 MPI D'>MAZDA6 3.0L V6 MPI D</option>
+                <option value='XTERRA 2WD V6 4.0L V'>XTERRA 2WD V6 4.0L V</option>
+                <option value='626 4C'>626 4C</option>
+                <option value='VUE AWD V6 3.5L V6 M'>VUE AWD V6 3.5L V6 M</option>
+                <option value='XL-7 2WD 2.7L V6 MFI'>XL-7 2WD 2.7L V6 MFI</option>
+                <option value='3.2 CL 3.2L V 6 NA S'>3.2 CL 3.2L V 6 NA S</option>
+                <option value='INTREPID 2.7L V6 SFI'>INTREPID 2.7L V6 SFI</option>
+                <option value='ECLIPSE 3.0L V6 EFI'>ECLIPSE 3.0L V6 EFI</option>
+                <option value='CR-V 2WD 2.0L I 4 NA'>CR-V 2WD 2.0L I 4 NA</option>
+                <option value='ESCALADE 2WD'>ESCALADE 2WD</option>
+                <option value='ESCORT 2.0L I-4 EFI'>ESCORT 2.0L I-4 EFI</option>
+                <option value='CROWN VICTORIA 4.6L'>CROWN VICTORIA 4.6L</option>
+                <option value='ACCENT 1.6L I-4 MPI'>ACCENT 1.6L I-4 MPI</option>
+                <option value='STRATUS V6 2.7L V6 S'>STRATUS V6 2.7L V6 S</option>
+                <option value='SABLE 3.0L V6 EFI 2B'>SABLE 3.0L V6 EFI 2B</option>
+                <option value='LANCER 2.0L I-4 MPI'>LANCER 2.0L I-4 MPI</option>
+                <option value='VUE AWD V6 3.0L V6 S'>VUE AWD V6 3.0L V6 S</option>
+                <option value='GRAND AM 4C 2.4L I-4'>GRAND AM 4C 2.4L I-4</option>
+                <option value='COOPER 1.6L I-4 EFI'>COOPER 1.6L I-4 EFI</option>
+                <option value='LS V6 3.0L V6 EFI DO'>LS V6 3.0L V6 EFI DO</option>
+                <option value='OUTBACK'>OUTBACK</option>
+                <option value='MURANO AWD V6'>MURANO AWD V6</option>
+                <option value='NAVIGATOR 2WD V8'>NAVIGATOR 2WD V8</option>
+                <option value='4 RUNNER 4WD V6'>4 RUNNER 4WD V6</option>
+                <option value='HHR 2.4L I4 MPI / SF'>HHR 2.4L I4 MPI / SF</option>
+                <option value='RAIDER 2WD V6'>RAIDER 2WD V6</option>
+                <option value='ELEMENT 2WD 2.4L I-4'>ELEMENT 2WD 2.4L I-4</option>
+                <option value='ARMADA 2WD V8'>ARMADA 2WD V8</option>
+                <option value='MALIBU HYBRID'>MALIBU HYBRID</option>
+                <option value='YUKON 2WD V8 5.3L V8'>YUKON 2WD V8 5.3L V8</option>
+                <option value='TSX'>TSX</option>
+                <option value='626 4C 2.0L I-4 EFI'>626 4C 2.0L I-4 EFI</option>
+                <option value='626 4C 2.0L I4 EFI'>626 4C 2.0L I4 EFI</option>
+                <option value='FOCUS 2.3L I4 SFI'>FOCUS 2.3L I4 SFI</option>
+                <option value='ESCORT 2.0L I-4 SPI'>ESCORT 2.0L I-4 SPI</option>
+                <option value='COUPE'>COUPE</option>
+                <option value='SENTRA 1.8L I 4 NA D'>SENTRA 1.8L I 4 NA D</option>
+                <option value='SEDONA 3.5L V6 EFI'>SEDONA 3.5L V6 EFI</option>
+                <option value='ESCORT 4-FI-2.0L'>ESCORT 4-FI-2.0L</option>
+                <option value='OPTIMA 4C 2.4L I 4 N'>OPTIMA 4C 2.4L I 4 N</option>
+                <option value='COUPE 1.9L I-4 SFI S'>COUPE 1.9L I-4 SFI S</option>
+                <option value='VERONA'>VERONA</option>
+                <option value='S10 PICKUP 2WD V6 4.'>S10 PICKUP 2WD V6 4.</option>
+                <option value='GRAND VITARA 4WD'>GRAND VITARA 4WD</option>
+                <option value='VIBE AWD'>VIBE AWD</option>
+                <option value='TRAILBLAZER 2WD V8'>TRAILBLAZER 2WD V8</option>
+                <option value='ACCORD 4C 2.3L I-4 E'>ACCORD 4C 2.3L I-4 E</option>
+                <option value='4 RUNNER 4WD V6 3.4L'>4 RUNNER 4WD V6 3.4L</option>
+                <option value='CANYON PICKUP 2WD 4C'>CANYON PICKUP 2WD 4C</option>
+                <option value='GX470 4WD'>GX470 4WD</option>
+                <option value='SIENNA'>SIENNA</option>
+                <option value='MOUNTAINEER 2WD V6 4'>MOUNTAINEER 2WD V6 4</option>
+                <option value='AVIATOR 2WD V8 4.6L'>AVIATOR 2WD V8 4.6L</option>
+                <option value='LIBERTY 4WD 4C'>LIBERTY 4WD 4C</option>
+                <option value='MARINER 2WD 4C'>MARINER 2WD 4C</option>
+                <option value='G35 3.5L V6 SMPI'>G35 3.5L V6 SMPI</option>
+                <option value='AXIOM 2WD V6'>AXIOM 2WD V6</option>
+                <option value='IMPALA V6 3.9L V6 SF'>IMPALA V6 3.9L V6 SF</option>
+                <option value='MAZDA5 2.3L I4 MFI /'>MAZDA5 2.3L I4 MFI /</option>
+                <option value='S10 PICKUP 4WD V6'>S10 PICKUP 4WD V6</option>
+                <option value='COOPER 1.6L I4 EFI'>COOPER 1.6L I4 EFI</option>
+                <option value='HHR 2.4L I4 MPI'>HHR 2.4L I4 MPI</option>
+                <option value='CTS 3.6L V6 SFI'>CTS 3.6L V6 SFI</option>
+                <option value='4 RUNNER 2WD V6'>4 RUNNER 2WD V6</option>
+                <option value='F150 PICKUP 4WD V8 4'>F150 PICKUP 4WD V8 4</option>
+                <option value='TAURUS X AWD V6'>TAURUS X AWD V6</option>
+                <option value='DURANGO 4WD V8 5.9L'>DURANGO 4WD V8 5.9L</option>
+                <option value='RX330 FWD'>RX330 FWD</option>
+                <option value='RSX'>RSX</option>
+                <option value='M35 3.5L V6 MPI'>M35 3.5L V6 MPI</option>
+                <option value='LS V8 3.9L V8 EFI'>LS V8 3.9L V8 EFI</option>
+                <option value='MONTANA 3.4L V 6 NA'>MONTANA 3.4L V 6 NA</option>
+                <option value='CX-7 FWD 4C'>CX-7 FWD 4C</option>
+                <option value='EXCURSION 4WD V8 5.4'>EXCURSION 4WD V8 5.4</option>
+                <option value='TC'>TC</option>
+                <option value='HIGHLANDER 4WD 4C'>HIGHLANDER 4WD 4C</option>
+                <option value='DURANGO 2WD V8 5.9L'>DURANGO 2WD V8 5.9L</option>
+                <option value='ENVOY 4WD 6C 4.2L I-'>ENVOY 4WD 6C 4.2L I-</option>
+                <option value='G35 3.5L V6 MPI'>G35 3.5L V6 MPI</option>
+            </select>
+            <h3>Which type of transmission?</h3><br><select id="third" name="Transmission" required="required">
+                <option value='MANUAL'>MANUAL</option>
+                <option value='AUTO'>AUTO</option>
+            </select>                 
+            <br><br><button id="sub" type="submit ">Submit & let's find out</button>
+            <br>
+
+        </form>
+
+
+
+        <br><br><h3>{{ prediction_text }}<h3>
+    </div>
+
+
+
+
+    <style>
+        body {
+            background-color: #6ac34a;
+            text-align: center;
+            padding: 0px;
+        }
+        
+        #research {
+            font-size: 18px;
+            width: 100px;
+            height: 23px;
+            top: 23px;
+        }
+        
+        #box {
+            border-radius: 60px;
+            border-color: 45px;
+            border-style: solid;
+            font-family: cursive;
+            text-align: center;
+            background-color: rgb(168, 131, 61);
+            font-size: medium;
+            position: absolute;
+            width: 700px;
+            bottom: 9%;
+            height: 850px;
+            right: 30%;
+            padding: 0px;
+            margin: 0px;
+            font-size: 14px;
+        }
+        
+        #fuel {
+            width: 83px;
+            height: 43px;
+            text-align: center;
+            border-radius: 14px;
+            font-size: 20px;
+        }
+        
+        #fuel:hover {
+            background-color: coral;
+        }
+        
+        #research {
+            width: 99px;
+            height: 43px;
+            text-align: center;
+            border-radius: 14px;
+            font-size: 18px;
+        }
+        
+        #research:hover {
+            background-color: coral;
+        }
+        
+        #resea {
+            width: 99px;
+            height: 43px;
+            text-align: center;
+            border-radius: 14px;
+            font-size: 18px;
+        }
+        
+        #resea:hover {
+            background-color: coral;
+        }
+        
+        #sub {
+            width: 120px;
+            height: 43px;
+            text-align: center;
+            border-radius: 14px;
+            font-size: 18px;
+        }
+        
+        #sub:hover {
+            background-color: darkcyan;
+            
+        }
+        
+        #first {
+            border-radius: 14px;
+            height: 25px;
+            font-size: 20px;
+            text-align: center;
+        }
+        
+        #second {
+            border-radius: 14px;
+            height: 25px;
+            font-size: 20px;
+            text-align: center;
+        }
+        
+        #third {
+            border-radius: 14px;
+            height: 25px;
+            font-size: 20px;
+            text-align: center;
+        }
+        
+        #fourth {
+            border-radius: 14px;
+            height: 25px;
+            font-size: 20px;
+            text-align: center;
+        }
+    </style>
+</body>
+
+</html>
