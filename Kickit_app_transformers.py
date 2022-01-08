@@ -96,7 +96,7 @@ class Kickit_frequency_encoder (BaseEstimator, TransformerMixin):
     def transform(self, X, catCols = ["Model", "Make" ,"Transmission"], y=None):  
         global freq_cat_dict 
         freq_cat_dict = {}
-        for col in X[catCols]:
+        for col in catCols:
             df_frequency_map = X[col].value_counts().to_dict()
             X[col] = X[col].map(df_frequency_map)
             freq_cat_dict.update(df_frequency_map)
@@ -116,19 +116,27 @@ class Kickit_weight_of_evidence_encoder (BaseEstimator, TransformerMixin):
     mother class = Sklearn.Base.BaseEstimator , TransformerMixin
     """
 
+    global woe_cat_dict, variables
+    woe_cat_dict = {}
+
+
+    
     
     def fit(self, X, catCols = None, y=None):
         return  self  
     
-    def transform(self, X, catCols = ["Model", "Make" ,"Transmission"] , y=None):
-        global woe_cat_dict 
-        for col in X[catCols]:
-
+    def transform(self, X, catCols = ["Model", "Make" ,"Transmission"], y=None):
+        
+        
+        for col in catCols: 
             WOE = np.log((0.5 + X[col][X.IsBadBuy == 0 ].value_counts())/(0.5 + X[col][X.IsBadBuy == 1 ].value_counts()))
+            WOE  = WOE.dropna()
+            WOE = WOE.loc[WOE!=0]
             df_frequency_map = WOE.to_dict()
-            X[col] = X[col].map(df_frequency_map)
+            X[col+'_encoded'] = X[col].map(df_frequency_map)
             X = X.dropna()
             woe_cat_dict.update(df_frequency_map)
+            variables = X.index 
         return  X 
     
 
