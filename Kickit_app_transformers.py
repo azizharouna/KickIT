@@ -45,7 +45,7 @@ class Kickit_dataframe_preprocessor (BaseEstimator, TransformerMixin):
             # replace each null value by the mean value
             X[num]= X[num].replace( ['?'], X[num].mean )
             #Converting the numerical olumns to int
-           
+            X = X[X.MMRAcquisitionAuctionAveragePrice != 0]
         
         # selecting the features to keep
         if choosen_axis == None :
