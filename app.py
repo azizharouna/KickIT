@@ -18,6 +18,7 @@ def index():
 
 @app.route("/predict", methods=['POST'])
 def predict():
+    Transmission2 = 0
     if request.method == 'POST':
         MMRAcquisitionAuctionAveragePrice = float(request.form["MMRAcquisitionAuctionAveragePrice"])
         VehOdo = float(request.form["VehOdo"])
@@ -26,7 +27,7 @@ def predict():
         Model = request.form["Model"]
         Model2 = Kidict.get(Model)
         Transmission = request.form["Transmission"]
-        Transmission2 = Kidict.get(Transmission)
+        if  Transmission == "AUTO": Transmission2 = 0
         output = model.predict([[MMRAcquisitionAuctionAveragePrice,VehOdo,Make2,Model2,Transmission2]])
 
         if output == 0:

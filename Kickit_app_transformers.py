@@ -90,15 +90,15 @@ class Kickit_dataframe_balancer (BaseEstimator, TransformerMixin):
     
     
 class Kickit_frequency_encoder (BaseEstimator, TransformerMixin):
-    def fit(self, X, catCols = ["Model", "Make" ,"Transmission"],  y=None):
+    def fit(self, X, catCols = ["Model", "Make"],  y=None):
         return  self  
         
-    def transform(self, X, catCols = ["Model", "Make" ,"Transmission"], y=None):  
+    def transform(self, X, catCols = ["Model", "Make"] , y=None):  
         global freq_cat_dict 
         freq_cat_dict = {}
         for col in catCols:
             df_frequency_map = X[col].value_counts().to_dict()
-            X[col] = X[col].map(df_frequency_map)
+            X[col+'_encoded'] = X[col].map(df_frequency_map)
             freq_cat_dict.update(df_frequency_map)
         return  X  
     
@@ -125,7 +125,7 @@ class Kickit_weight_of_evidence_encoder (BaseEstimator, TransformerMixin):
     def fit(self, X, catCols = None, y=None):
         return  self  
     
-    def transform(self, X, catCols = ["Model", "Make" ,"Transmission"], y=None):
+    def transform(self, X, catCols = ["Model", "Make"], y=None):
         
         
         for col in catCols: 
@@ -139,5 +139,38 @@ class Kickit_weight_of_evidence_encoder (BaseEstimator, TransformerMixin):
             variables = X.index 
         return  X 
     
+
+from collections import Counter
+def cumulatively_categorise(column,threshold=0.75,return_categories_list=True):
+    #Find the threshold value using the percentage and number of instances in the column
+    threshold_value=int(threshold*len(column))
+    #Initialise an empty list for our new minimised categories
+    categories_list=[]
+    #Initialise a variable to calculate the sum of frequencies
+    s=0
+    #Create a counter dictionary of the form unique_value: frequency
+    counts=Counter(column)
+
+    #Loop through the category name and its corresponding frequency after sorting the categories by descending order of frequency
+    for i,j in counts.most_common():
+        #Add the frequency to the global sum
+        s+=dict(counts)[i]
+        #Append the category name to the list
+        categories_list.append(i)
+        #Check if the global sum has reached the threshold value, if so break the loop
+        if s>=threshold_value:
+            break
+        #Append the category Other to the list
+        categories_list.append('Other')
+        #Replace all instances not in our new categories by Other  
+    new_column=column.apply(lambda x: x if x in categories_list else 'Other')
+
+    #Return transformed column and unique values if return_categories=True
+    if(return_categories_list == True):
+        return new_column,categories_list
+        #Return only the transformed column if return_categories=False
+    else:
+        return new_column
+
 
     
