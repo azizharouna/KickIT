@@ -23,8 +23,13 @@ class Kickit_dataframe_preprocessor (BaseEstimator, TransformerMixin):
     
     def transform(self, X, choosen_axis = None , y=None):       
         
-        
+        # Setting transmission Auto to 1 and manual to 0
+        X['Transmission'] = X['Transmission'].replace(['AUTO'], 1)
+        X['Transmission'] = X['Transmission'].replace(['MANUAL'], 0)
+        X['Transmission'] = X['Transmission'].replace(['Manual'], 0)
+        X['Transmission'] = X['Transmission'].replace(['?'], 0)
         # seting the list of column
+        
         catList = ["Model", "Make" ,"Transmission"]
         # looping for the imputing strategy for each column
         for cat in catList:
